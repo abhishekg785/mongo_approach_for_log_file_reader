@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Log Viewer</title>
+	<link href = "css/main.css" type = "text/css" rel = "stylesheet" />
+</head>
+<body>
+	<header>
+		<h1>Log File Display</h1>
+	</header>
+	<section id = "loader-container">
+		<div id = "outer-loader-square" class = "loader-square">
+		</div>
+		<div id = "inner-loader-square" class = "loader-square">
+		</div>
+	</section>
+	<section id = "query-container">
+		<input type = "text" name = "pathString" id = "path-string" placeholder = "/path/to/file" required />
+		<button class = "button" id = "view-button" >View</button>
+	</section>
+	<section id = "data-container">
+		<div id = "data-view">
+			<p class = "message">
+				Hey There! I am your friendly <span>Log Viewer</span> :)<br/>
+				Sorry! Currenty i have no logs to display. Just go and search for logs using my <span>search box</span> above :)
+			</p>
+			<ul></ul>
+		</div>
+	</section>
+	<section id = "nav-container">
+		<p class = "message">( <span>Disabled Navigation</span> due to no data )</p>
+		<button id = "start-data-nav" class = "nav-button" data-type = "start-nav">|<</button>
+		<button id = "previous-data-nav" class = "nav-button" data-type = "previous-nav"><</button>
+		<button id = "next-data-nav" class = "nav-button" data-type = "next-nav">></button>
+		<button id = "end-data-nav" class = "nav-button" data-type = "end-nav">|></button>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src = "js/main.js" type="text/javascript"></script>
+</body>
+</html>
