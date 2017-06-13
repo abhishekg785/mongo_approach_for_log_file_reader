@@ -10,12 +10,13 @@
 	var $Globals = {};
 
 	var	Functions = {
-			/*
-			* sends an ajax  request to the server with the file path.
+			/**
+			* sends an ajax request to the server with the file path.
 			* this function will fetch the data of the file in the
 			* path passed as a parameter.
 			*
-			* @param { string } filepath = Path to the file to fetch data from
+			* @param { string } filepath - path to the file
+			* @param { string } action - action to take with the file
 			*/
 			FetchFileData : function(filePath, action) {
 				$.ajax({
