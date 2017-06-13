@@ -26,13 +26,12 @@
 						'action' : action
 					},
 					success : function(data) {
-						// Functions.HideMessage()
-						// 	.HideLoader()
-						// 	.EnableNavButtons();
-						// var data = JSON.parse(data);
-						// $Globals.dataArr = data; // cache the data for future queries
-						// Functions.DisplayFetchedLogs($Globals.dataArr);
-						Functions.HideLoader().EnableNavButtons();
+						Functions.HideMessage()
+							.HideLoader()
+							.EnableNavButtons();
+						var data = JSON.parse(data);
+						$Globals.dataArr = data; // cache the data for future queries
+						Functions.DisplayFetchedLogs($Globals.dataArr);
 						console.log(data);
 					},
 					error : function(err) {
@@ -78,7 +77,7 @@
 				$Objects.DataView.empty();
 				var html = "<ul>";
 				dataArr.forEach(function(data) {
-					html += "<li>" + data + "</li>";
+					html += "<li>" + "[" + data.lineNumber + "]" + " " + data.log + "</li>";
 				});
 				html += "</ul>";
 				$Objects.DataView.append(html);

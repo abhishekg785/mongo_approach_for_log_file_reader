@@ -13,7 +13,7 @@ var LogModel = require('../models/logModel');
 	}
 
 	var ActionObj = {
-		initial : 'inital',
+		initial : 'initial',
 		start : 'start-nav',
 		end : 'end-nav',
 		next : 'next-nav',
@@ -44,7 +44,8 @@ var LogModel = require('../models/logModel');
 							console.log('error counting records');
 						}
 					});
-					res.end(logData)
+					var resData = JSON.stringify(logData);
+					res.end(resData)
 				});;
 			});
 		}
@@ -52,7 +53,9 @@ var LogModel = require('../models/logModel');
 			console.log('File has been read already');
 			fetchLogs(filePath, action, function(logData) {
 				console.log('page' + _Globals.currentPagePosition);
-				res.end(logData);
+				var resData = JSON.stringify(logData);
+				console.log(resData);
+				res.end(resData);
 			});
 		}
 	}
@@ -99,26 +102,19 @@ var LogModel = require('../models/logModel');
 			_Globals.currentPagePosition = totalPages;
 		}
 		var startPos = (_Globals.currentPagePosition - 1) * _Globals.recordsCountPerPage + 1;
-		// if(temp!=0) {	// end point must be defined
-		// 	var endPos = startPos + temp;
-		// }
-		// else {
-		// 	var endPos = startPos + _Globals.recordsCountPerPage - 1;
-		// }
-		// if i am on the end of the page
 		if(_Globals.currentPagePosition == totalPages && temp!=0) {
 			var endPos = startPos + temp;
 		}
 		else {
 			var endPos = startPos + _Globals.recordsCountPerPage - 1;
 		}
-		console.log('start' + startPos);
-		console.log('end' + endPos);
+		// console.log('start' + startPos);
+		// console.log('end' + endPos);
 
 		LogModel.find({}).sort({'lineNumber' : 1}).skip(startPos - 1).limit(endPos - startPos + 1).exec(function(err, data) {
-			console.log(data);
+			// console.log(data);
+			callback(data);
 		});
-		callback('data to be fetched');
 	}
 
 	function setGlobalValToZero() {
