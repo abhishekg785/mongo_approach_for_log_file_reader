@@ -76,7 +76,7 @@ var exports = module.exports;
 				log: log,
 				filePath : that.filePath
 			});
-			newLog.save(function(err, data) {
+			newLog.save(function saveDataToDB(err, data) {
 				if(!err) {
 					console.log('data saved into DB');
 				}

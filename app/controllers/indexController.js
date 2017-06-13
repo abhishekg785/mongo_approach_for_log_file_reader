@@ -52,15 +52,15 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 	exports.ProcessLogs = function(req, res) {
 		var filePath = req.body.filePath,
 				action = req.body.action;
-		fileReadStatus(filePath, function(fileStatus) {
-			LogModel.count({'filePath' : filePath}, function(err, count) { // calculates the total records in the file
+		fileReadStatus(filePath, function IsFileRead(fileStatus) { // check whther the file has been read ealier or not
+			LogModel.count({'filePath' : filePath}, function setFileRecordCount(err, count) { // calculates the total records in the file
 				if(!err) {
 					_Globals.fileRecordsCount = count;
 					if(!fileStatus) {
 						var logObj = new logHandler.LogHandler(filePath);
 						logObj.saveLogsInDB(logObj.saveLog, function() {
 							// _Globals.readFileRecords.push(filePath);
-							fetchLogs(filePath, action, function(logData) {
+							fetchLogs(filePath, action, function sendFetchedLogsToClient(logData) {
 								// console.log('page' + _Globals.currentPagePosition);
 								var resData = JSON.stringify(logData);
 								res.end(resData)
@@ -69,10 +69,9 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 					}
 					else {
 						console.log('File has been read already');
-						fetchLogs(filePath, action, function(logData) {
+						fetchLogs(filePath, action, function sendFetchedLogsToClient(logData) {
 							console.log('page' + _Globals.currentPagePosition);
 							var resData = JSON.stringify(logData);
-							//console.log(resData);
 							res.end(resData);
 						});
 					}
@@ -93,7 +92,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 	function fileReadStatus(filePath, callback) {
 		ReadFileModel.find({
 			'fileName' : filePath
-		}).exec(function(err, data) {
+		}).exec(function checkFileStatus(err, data) {
 			if(!err) {
 				// console.log('data' + data);
 				if(data.length > 0) { // entry exists
@@ -169,11 +168,10 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		}
 		// console.log('start' + startPos);
 		// console.log('end' + endPos);
-		console.log(totalPages);
+		// console.log(totalPages);
 		LogModel.find({
 			'filePath' : filePath
-		}).sort({'lineNumber' : 1}).skip(startPos - 1).limit(endPos - startPos + 1).exec(function(err, data) {
-			// console.log(data);
+		}).sort({'lineNumber' : 1}).skip(startPos - 1).limit(endPos - startPos + 1).exec(function returnFetchedData(err, data) {
 			callback(data);
 		});
 	}

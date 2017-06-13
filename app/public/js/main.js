@@ -27,7 +27,7 @@
 						'filePath' : filePath,
 						'action' : action
 					},
-					success : function(data) {
+					success : function getData(data) {
 						Functions.HideMessage()
 							.HideLoader()
 							.EnableNavButtons();
