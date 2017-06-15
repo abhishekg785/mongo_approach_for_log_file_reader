@@ -191,3 +191,43 @@ header h1 {
   color: crimson;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 1030px) {
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  #query-container > input[type=text] {
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+
+  #view-button {
+    float: none;  
+    display: block;
+    margin: 0.4rem;
+    height: 3rem;
+    width: 7rem;
+    font-size: 1.3rem;
+    position: relative; 
+    left: 7%;
+  }
+
+  .message, #data-view {
+    font-size: 1.4rem;
+  }
+
+  .nav-button {
+    height: 3.5rem;
+    width: 3.8rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  .message, #data-view{
+    font-size: 1.3rem;
+  }
+
+}

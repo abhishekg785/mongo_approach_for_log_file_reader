@@ -1,0 +1,46 @@
+Log File Viewer
+---------------
+
+A simple web app in Node.JS, that fetches the logs from the log file at the server and displays the fetched data to the clint 10 records at a time.
+
+A simple web app in Node.JS, that fetches the logs from the log file at the server and displays the fetched data to the clint 10 records at a time.
+
+Considering the file size is too large , reading the file as a whole is not a good approach, as it will consume
+                -----------------------
+a lot of memory or RAM.
+
+So the Node.JS Streams comes to the rescue.
+      -----------------
+Reading chunks of data at a given time rather than the whole file will take less memory.
+
+Now how to get the start, end, next or previous 10 records in the file.
+
+One solution is : https://github.com/abhishekg785/Log-File-Viewer
+
+OR
+
+Dumping data into DB ( i am using MongoDB ) for the first time only and keeping the records of the files which have been read by the user,
+so that the file is not read for the subsequent request to the server by client.
+
+Now this has one overhead of reading and storing the entire file at the very first time, but after that ,
+i have cached the file name which has been read already and thus no need of reading and storing the file each time a user makes request.
+Now the things become quite simple as i have to just make queries into the DB and this takes very less time and i can easily fetch log data and take the corresponding user action.
+
+I have completely implemented this things it works properly according to the users action.
+So, when a user queries for a file, it searches for file status => ( if the file is read or not ) =>
+if( file is read) {
+  do not read and store the file
+  Go directly and query into the MongoDB
+}
+Else {
+  Read the file using streams and then store into the mongoDB line by line
+  Make query into the DB
+}
+
+Note : The good appraoch will be using elk stack i.e using somethings like logstash , elastic search or graylog etc.
+
+Steps to Run :
+
+1. cd into the project
+2. do 'sudo npm install' to install npm modules
+3. node bin/www
