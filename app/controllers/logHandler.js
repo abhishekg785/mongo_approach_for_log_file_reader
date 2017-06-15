@@ -43,22 +43,20 @@ var exports = module.exports;
 	* @param { function } callback - callback function to save file line into DB
 	* @param { function } sendData - callback function to process the fetched data and send to client
 	*/
-	LogHandler.prototype.saveLogsInDB = function(callback, sendData) {
+	LogHandler.prototype.saveLogsInDB = function(callback) {
 		var that = this;
 		that.readStream.pipe(es.split())
 		.pipe(es.mapSync(function(line) {
-
-			that.readStream.pause(); // pausing the stream
-			lineNumber += 1; // keeping record of the line no
-			callback.call(that, line, lineNumber); // calls the saveLog function and passing this reference
-
+			that.readStream.pause();
+			lineNumber += 1;
+			that.saveLog(line, lineNumber);
 		}))
-		.on('end', function() { // event is called when file is read successfully
-			console.log('File Processed successfully');
-			sendData();
+		.on('end', function() {
+			console.log('File processed till end');
+			callback();
 		})
 		.on('error', function(err) {
-			console.log('Error reading file!');
+			callback(err);
 		})
 	}
 
