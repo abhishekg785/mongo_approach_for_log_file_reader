@@ -2,8 +2,7 @@
 * author : abhishek goswami
 * abhishekg785@gmail.com
 *
-* Future Improvements : Currently i am using simple callbacks to hanldle stuff
-* Using Async.js will be a better choice
+* Future Improvements :
 * Caching the file names which has been read so that they are not read again with the user requests
 * Currently this has been done by maintaining the files in the DB which has been read and storing
 * their data into DB for the first time, after than data is queried from DB

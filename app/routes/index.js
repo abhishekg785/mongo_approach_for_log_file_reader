@@ -6,10 +6,10 @@
 var express = require('express');
 var router = express.Router();
 
-var indexController = require('../controllers/logPromises');
+var logController = require('../controllers/logController');
 
 
-router.get('/', indexController.GetIndex); // handles GET request route for /
-router.post('/', indexController.ProcessLogs); // hanldles POST request for /
+router.get('/', logController.GetIndex); // handles GET request route for /
+router.post('/', logController.ProcessLogs); // hanldles POST request for /
 
 module.exports = router;

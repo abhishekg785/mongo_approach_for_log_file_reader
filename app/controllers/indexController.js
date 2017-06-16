@@ -1,4 +1,5 @@
 /**
+* NOTE : THIS FILE IS NO LONGER USED AND HAVE BEEN CONVERTED TO 'logPromises.js' USING THE AWESOME ' Async '
 * author : abhishek goswami
 * abhishekg785@gmail.com
 *
