@@ -24,7 +24,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		currentPagePosition : 1, // initally current position is set to page 1
 		fileRecordsCount : 0,	// count of the no of records in the file ( value is set later )
 		recordsCountPerPage : 10, // no of records per page
-		action : ''
+		action : '',
 	}
 
 	// defining user action object for navigation
@@ -68,6 +68,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 				fileReadStatus,
 				saveFileInDB,
 				countFileRecords,
+				processFilePositionParams,
 				fetchLogs
 			],
 			function(err, result) {
@@ -119,6 +120,13 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			});
 		}
 
+		/**
+		* Stores the file into db if the file is not stored earlier using fileStatus
+		*
+		* @param { string } filePath - Path of the file
+		* @param { string }
+		* @param { callback }
+		*/
 		function saveFileInDB(filePath, fileStatus, callback) {
 			if(!fileStatus) {
 				console.log('Saving file in DB');
@@ -128,12 +136,12 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 						callback(null, filePath, fileStatus);
 					}
 					else {
-						console.log('File has been read already');
-						callback(err);
+						callback(null, err);
 					}
 				});
 			}
 			else {
+				console.log('File has been read already');
 				callback(null, filePath, fileStatus); // file has been read already
 			}
 		}
@@ -154,14 +162,14 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 
 
 		/**
-		* Fetches the logs from the DB according to the particular action
+		* Caclutes the starting and ending position of the file to read as per user's action
 		*
 		* @param { string } filePath - path to the file
 		* @param { string } action - user's action to be taken
 		* @param { function } callback - simple callback function to read the data and return the fetched data
 		*/
-		function fetchLogs(filePath, action, callback) {
-			console.log('Fetching logs');
+		function processFilePositionParams(filePath, action, callback) {
+			console.log('getting file reading start and end pos params');
 			var totalPages = 0;
 			var totalRecords = _Globals.fileRecordsCount;
 			var temp = Math.floor(totalRecords % _Globals.recordsCountPerPage);
@@ -199,10 +207,32 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			else {
 				var endPos = startPos + _Globals.recordsCountPerPage - 1;
 			}
+			callback(null, filePath, startPos, endPos);
+		}
+
+		/**
+		* Fetches the logs from the DB using the awesome Promises
+		*
+		* @param { string } filePath - path to the file
+		* @param { string } startPos - start position to which the file read should be started
+		* @param { string } endPos - end point or the last line to the read the file upto.
+		* @param { function } callback - the function to send the data back to the user
+		*/
+		function fetchLogs(filePath, startPos, endPos, callback) {
+			console.log('Fetching files');
 			LogModel.find({
 				'filePath' : filePath
-			}).sort({'lineNumber' : 1}).skip(startPos - 1).limit(endPos - startPos + 1).exec(function returnFetchedData(err, data) {
-				callback(null, data);
+			})
+			.sort({'lineNumber' : 1})
+			.skip(startPos - 1)
+			.limit(endPos - startPos + 1)
+			.exec(function returnFetchedData(err, data) {
+				if(!err) {
+					callback(null, data);
+				}
+				else {
+					callback(null, err);
+				}
 			});
 		}
 
