@@ -19,11 +19,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 
 	// variables to be accessed throughout
 	var _Globals = {
-		// readFileRecords : [], // for caching the names of file which has been read
-		currentPagePosition : 1, // initally current position is set to page 1
-		fileRecordsCount : 0,	// count of the no of records in the file ( value is set later )
 		recordsCountPerPage : 10, // no of records per page
-		action : '',
 	}
 
 	// defining user action object for navigation
@@ -37,7 +33,6 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 
 	// Handles the GET request of the client for the index page
 	exports.GetIndex = function(req, res) {
-		setGlobalValToZero();
 		res.render('index');
 	}
 
@@ -51,18 +46,26 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 	* Fetch the 10 records at a time and send the fetched data to the user
 	*/
 	exports.ProcessLogs = function(req, res) {
+
+		// initial log params
+		var logParameters = {
+			filePath : '',
+			currentPagePosition : 1,
+			fileRecordsCount : 0,
+			action : '',
+		}
+
 		var filePath = req.body.filePath,
-		action = req.body.action;
-		_Globals.action = action;
-		/*
-		* In series as both if file is not present then no count so,
-		* First read the file status
-		* Then count the no of records in the file
-		*/
+				action = req.body.action,
+				currentPagePosition = req.body.currentPagePosition;
+		logParameters.filePath = filePath;
+		logParameters.action = action;
+		logParameters.currentPagePosition = currentPagePosition;
+
 		async.waterfall(
 			[
 				function(callback) {
-					callback(null, filePath);
+					callback(null, logParameters);
 				},
 				fileReadStatus,
 				saveFileInDB,
@@ -70,10 +73,18 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 				processFilePositionParams,
 				fetchLogs
 			],
-			function(err, result) {
+			function(err, updatedlogParams, data) {
 				if(!err) {
-					// console.log(result);
-					res.end(JSON.stringify(result));
+					var fileRecordsCount = updatedlogParams.fileRecordsCount;
+					var action = updatedlogParams.action;
+					if(action == ActionObj.initial) {
+						var resData = {
+							'fileRecordsCount' : fileRecordsCount,
+							'logs' : data
+						}
+						res.end(JSON.stringify(resData));
+					}
+					res.end(JSON.stringify(data));
 				}
 				else {
 					console.log(err);
@@ -84,33 +95,22 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		/**
 		*	Checks whether the file data has been read and stored in DB or not
 		*
-		* @param { string } filePath - path of the file
+		* @param { object } logParameters - all the params of the log file required
 		* @param { function } callback - callback function to return the status of the file read or not
 		*/
-		function fileReadStatus(filePath, callback) {
+		function fileReadStatus(logParameters, callback) {
 			console.log('Reading file status');
 			ReadFileModel.find({
-				'fileName' : filePath
+				'fileName' : logParameters.filePath
 			}).exec(function checkFileStatus(err, data) {
 				if(!err) {
 					// console.log('data' + data);
 					if(data.length > 0) { // entry exists
 						console.log('data exists');
-						callback(null, filePath, true);
+						callback(null, logParameters, true);
 					}
 					else {
-						var newFile = new ReadFileModel({
-							'fileName' : filePath
-						});
-						newFile.save(function(err, data) {
-							if(!err) {
-								console.log('data saved');
-							}
-							else {
-								console.log(err);
-							}
-						});
-						callback(null, filePath, false);
+						callback(null, logParameters, false);
 					}
 				}
 				else {
@@ -122,17 +122,19 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		/**
 		* Stores the file into db if the file is not stored earlier using fileStatus
 		*
-		* @param { string } filePath - Path of the file
-		* @param { string }
-		* @param { callback }
+		* @param { object } logParameters - all the params of the log file required
+		* @param { string } fileStatus - status of the file ( read or not )
+		* @param { function } callback - simple callback function to read the data and return the fetched data
 		*/
-		function saveFileInDB(filePath, fileStatus, callback) {
+		function saveFileInDB(logParameters, fileStatus, callback) {
+			var filePath = logParameters.filePath;
 			if(!fileStatus) {
 				console.log('Saving file in DB');
 				var logObj = new logHandler.LogHandler(filePath);
 				logObj.saveLogsInDB(function(err) {
 					if(!err) {
-						callback(null, filePath, fileStatus);
+						updateFileStatusInReadFileModel(filePath);
+						callback(null, logParameters);
 					}
 					else {
 						callback(null, err);
@@ -141,84 +143,70 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			}
 			else {
 				console.log('File has been read already');
-				callback(null, filePath, fileStatus); // file has been read already
+				callback(null, logParameters); // file has been read already
 			}
 		}
 
-		function countFileRecords(filePath, fileStatus, callback) {
+		/**
+		* Count the no of records or data in the db ( in the file )
+		*
+		* @param { object } logParameters - all the parameters for the log proceesing in a log file
+		* @param { function } callback - simple callback function to read the data and return the fetched data
+		*/
+		function countFileRecords(logParameters, callback) {
+			var filePath = logParameters.filePath;
 			console.log('counting file records');
 			LogModel.count({'filePath' : filePath}, function setFileRecordCount(err, count) { // calculates the total records in the file
 				if(!err) {
-					_Globals.fileRecordsCount = count;
-					callback(null, filePath, _Globals.action);
+					console.log('count' + count);
+					logParameters.fileRecordsCount = count;
+					callback(null, logParameters);
 				}
 				else {
 					console.log('error occurred in counting the records');
-					callback(err);
+					callback(null, err);
 				}
 			});
 		}
 
-
 		/**
 		* Caclutes the starting and ending position of the file to read as per user's action
 		*
-		* @param { string } filePath - path to the file
-		* @param { string } action - user's action to be taken
+		* @param { string } { object } logParameters - all the parameters for the log proceesing in a log file
 		* @param { function } callback - simple callback function to read the data and return the fetched data
 		*/
-		function processFilePositionParams(filePath, action, callback) {
+		function processFilePositionParams(logParameters, callback) {
 			console.log('getting file reading start and end pos params');
-			var totalPages = 0;
-			var totalRecords = _Globals.fileRecordsCount;
-			var temp = Math.floor(totalRecords % _Globals.recordsCountPerPage);
-			var pageCount = Math.floor(totalRecords / _Globals.recordsCountPerPage);
-			if(temp == 0) {  // exact no of pages
-				totalPages = pageCount;
-			}
-			else { // some data is left and one additional page required
-				totalPages = pageCount + 1;
-			}
-			if(action == ActionObj.initial || action == ActionObj.start) {
-				_Globals.currentPagePosition = 1;
-			}
-			else if(action == ActionObj.next) {
-				if(_Globals.currentPagePosition + 1 <= totalPages) {
-					_Globals.currentPagePosition += 1;
-				}
-				console.log(_Globals.currentPagePosition);
-				console.log(action);
-			}
-			else if(action == ActionObj.previous) {
-				if(_Globals.currentPagePosition - 1 >= 1) {
-					_Globals.currentPagePosition -= 1;
-				}
-				console.log(_Globals.currentPagePosition);
-				console.log(action);
-			}
-			else if(action == ActionObj.end) {
-				_Globals.currentPagePosition = totalPages;
-			}
-			var startPos = (_Globals.currentPagePosition - 1) * _Globals.recordsCountPerPage + 1;
-			if(_Globals.currentPagePosition == totalPages && temp!=0) {
-				var endPos = startPos + temp;
+			var filePath = logParameters.filePath,
+					action = logParameters.action,
+					currentPagePosition = logParameters.currentPagePosition,
+					fileRecordsCount = logParameters.fileRecordsCount,
+					temp = Math.floor(fileRecordsCount % _Globals.recordsCountPerPage),
+					pageCount = Math.floor(fileRecordsCount / _Globals.recordsCountPerPage),
+					totalPages = temp == 0 ? pageCount : pageCount + 1;
+
+			var startPos, endPos;
+			startPos = (currentPagePosition - 1) * _Globals.recordsCountPerPage + 1;
+			if(currentPagePosition == totalPages && temp!=0) {
+				endPos = startPos + temp;
 			}
 			else {
-				var endPos = startPos + _Globals.recordsCountPerPage - 1;
+				endPos = startPos + _Globals.recordsCountPerPage - 1;
 			}
-			callback(null, filePath, startPos, endPos);
+			callback(null, logParameters, startPos, endPos);
 		}
 
 		/**
 		* Fetches the logs from the DB using the awesome Promises
 		*
-		* @param { string } filePath - path to the file
+		* @param { object } logParameters - all the parameters for the log proceesing in a log file
 		* @param { string } startPos - start position to which the file read should be started
 		* @param { string } endPos - end point or the last line to the read the file upto.
 		* @param { function } callback - the function to send the data back to the user
 		*/
-		function fetchLogs(filePath, startPos, endPos, callback) {
+		function fetchLogs(logParameters, startPos, endPos, callback) {
 			console.log('Fetching files');
+			var filePath = logParameters.filePath;
 			LogModel.find({
 				'filePath' : filePath
 			})
@@ -227,7 +215,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			.limit(endPos - startPos + 1)
 			.exec(function returnFetchedData(err, data) {
 				if(!err) {
-					callback(null, data);
+					callback(null, logParameters, data);
 				}
 				else {
 					callback(null, err);
@@ -236,13 +224,22 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		}
 
 		/**
-		*	Sets all _Global variables to zero
+		* Simply adds the file to the database to show that this file has been read
+		*
+		* @param { string }  filePath : path of the file which has been read
 		*/
-		function setGlobalValToZero() {
-			_Globals.readFileRecords = [];
-			_Globals.currentPagePosition = 0;
-			_Globals.fileRecordsCount = 0;
-			_Globals.recordsCountPerPage = 10;
+		function updateFileStatusInReadFileModel(filePath) {
+			var newFile = new ReadFileModel({
+				'fileName' : filePath
+			});
+			newFile.save(function(err, data) {
+				if(!err) {
+					console.log('file added to the read file model');
+				}
+				else {
+					console.log(err);
+				}
+			});
 		}
 
 	})(exports);
