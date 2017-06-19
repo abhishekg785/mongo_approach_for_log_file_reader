@@ -41,18 +41,25 @@
 					'currentPagePosition' : $Globals.currentPagePosition
 				},
 				success : function getData(data) {
-					Functions.HideMessage()
+					Functions
+					.HideMessage()
 					.HideLoader()
 					.EnableNavButtons();
-					if(action == $ActionObj.initial) { // initial
-						var data = JSON.parse(data);
-						$Globals.fileRecordsCount = data.fileRecordsCount;
-						$Globals.dataArr = data.logs;
+					var fetchedData = JSON.parse(data);
+					console.log(fetchedData);
+					if(fetchedData.error) {
+						Functions.ShowMessage().LogErrorMessage("<p>"+ fetchedData.error +"</p>");
 					}
 					else {
-						$Globals.dataArr = JSON.parse(data);
+						if(action == $ActionObj.initial) { // initial
+							$Globals.fileRecordsCount = fetchedData.fileRecordsCount;
+							$Globals.dataArr = fetchedData.logs;
+						}
+						else {
+							$Globals.dataArr = fetchedData;
+						}
+						Functions.DisplayFetchedLogs($Globals.dataArr);
 					}
-					Functions.DisplayFetchedLogs($Globals.dataArr);
 				},
 				error : function(err) {
 					console.log(err);
@@ -123,6 +130,7 @@
 		* @return { object } Functions - object of functions
 		*/
 		LogErrorMessage : function(message) {
+			console.log(message);
 			$Objects.DataViewMessage.html(message);
 			return Functions;
 		},
@@ -131,10 +139,10 @@
 			// console.log($Globals.fileRecordsCount);
 			$Globals.action = action;
 			var totalPages = 0,
-					totalRecords = $Globals.fileRecordsCount,
-					recordsCountPerPage = $Globals.recordsCountPerPage,
-					temp = Math.floor(totalRecords % recordsCountPerPage),
-					pageCount = Math.floor(totalRecords / recordsCountPerPage);
+			totalRecords = $Globals.fileRecordsCount,
+			recordsCountPerPage = $Globals.recordsCountPerPage,
+			temp = Math.floor(totalRecords % recordsCountPerPage),
+			pageCount = Math.floor(totalRecords / recordsCountPerPage);
 
 			if(temp == 0) {
 				totalPages = pageCount;

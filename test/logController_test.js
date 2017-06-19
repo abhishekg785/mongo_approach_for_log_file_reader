@@ -25,24 +25,3 @@ describe('Testing the index GET route', function() {
     });
   });
 });
-
-/*
-* testing the post request to the DB to fetch the logs from the DB
-*/
-chai.use(chaiHttp);
-
-describe('POST /', function() {
-  it('should get the 10 logs', function() {
-    let fileParams = {
-      filePath : '/var/log/mongodb/mongod.log',
-      action : 'initial',
-      currentPagePosition : 1
-    }
-    chai.request(server)
-      .post('/')
-      .send(fileParams)
-      .end(function(err, res) {
-        req.body.should.be.a('object');
-      })
-  });
-});

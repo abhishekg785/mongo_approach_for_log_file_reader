@@ -87,7 +87,10 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 					res.end(JSON.stringify(data));
 				}
 				else {
-					console.log(err);
+					var errorData = {
+						'error' : String(err)
+					}
+					res.end(JSON.stringify(errorData));
 				}
 			});
 		}
@@ -130,14 +133,14 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			var filePath = logParameters.filePath;
 			if(!fileStatus) {
 				console.log('Saving file in DB');
-				var logObj = new logHandler.LogHandler(filePath);
+				var logObj = new logHandler.LogHandler(filePath, callback);
 				logObj.saveLogsInDB(function(err) {
 					if(!err) {
 						updateFileStatusInReadFileModel(filePath);
 						callback(null, logParameters);
 					}
 					else {
-						callback(null, err);
+						callback(err);
 					}
 				});
 			}
@@ -164,7 +167,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 				}
 				else {
 					console.log('error occurred in counting the records');
-					callback(null, err);
+					callback(err);
 				}
 			});
 		}
@@ -218,7 +221,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 					callback(null, logParameters, data);
 				}
 				else {
-					callback(null, err);
+					callback(err);
 				}
 			});
 		}

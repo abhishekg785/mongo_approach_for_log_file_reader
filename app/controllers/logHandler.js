@@ -32,9 +32,13 @@ var exports = module.exports;
 	* @constructor
 	* @param { string } filePath - The path to the file
 	*/
-	function LogHandler(filePath) {
+	function LogHandler(filePath, callback) {
 		this.filePath = filePath;
-		this.readStream = fs.createReadStream(filePath); // create a read stream to read files in chunks
+		this.readStream = fs.createReadStream(filePath) // create a read stream to read files in chunks
+			.on('error', function(err) {
+				var error = new Error('<span>No such file exists!</span> Please specify a valid file path :) ');
+				callback(error);
+			});
 	}
 
 	/**
