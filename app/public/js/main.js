@@ -189,14 +189,16 @@
 				return false;
 			}
 			var action = 'initial'; // action defines the navigation
-			Functions.FetchFileData(filePath, action)
+			Functions
+			.FetchFileData(filePath, action)
 			.ShowLoader();
 		});
 
 		$Objects.NavigationButton.bind('click', function(e) { // bind click event to the navigation buttons
 			var filePath = $Objects.PathString.val();
 			var action = e.target.dataset.type;
-			Functions.SetPagePosition(action)
+			Functions
+			.SetPagePosition(action)
 			.FetchFileData(filePath, action)
 			.ShowLoader();
 		});
