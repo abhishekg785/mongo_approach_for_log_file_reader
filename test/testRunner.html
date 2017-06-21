@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Test Runner</title>
+    <link rel = 'stylesheet' href = '../node_modules/mocha/mocha.css' />
+</head>
+<body>
+<div id = 'mocha'></div>
+<script src = '../node_modules/mocha/mocha.js'></script>
+<script src = '../node_modules/chai/chai.js'></script>
+<script>mocha.setup('bdd')</script>
+<!-- file to test i.e main.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = '../app/public/js/main.js'></script>
+<script>
+    var assert = chai.assert;
+    describe("Testing the functions for the loader", function() {
+        var loaderStatus = {};
+        $Objects.LoaderContainer = new Object();
+        $Objects.LoaderContainer.css = function (prop, val) {
+            if(prop && val) {
+                loaderStatus.prop = val;
+            }
+            else if(prop) {
+                return loaderStatus.prop;
+            }
+        }
+        describe('testing for the ShowLoader()', function() {
+            it('must hide the loader if the loader is visible', function() {
+                Functions.HideLoader();
+                assert.equal($Objects.LoaderContainer.css('display'), 'none');
+            })
+        })
+        describe('testing for the HideLoader function', function() {
+            it('must hide the loader if the loader is visible', function() {
+                Functions.ShowLoader();
+                assert.equal($Objects.LoaderContainer.css('display'), 'block');
+            })
+        })
+    });
+</script>
+<script>mocha.run();</script>
+</body>
+</html>

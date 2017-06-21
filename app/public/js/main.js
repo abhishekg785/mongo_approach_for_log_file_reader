@@ -21,7 +21,7 @@
 		previous : 'previous-nav' // previous 10 pages
 	}
 
-	var	Functions = {
+	var Functions = {
 		/**
 		* sends an ajax request to the server with the file path.
 		* this function will fetch the data of the file in the
@@ -180,6 +180,10 @@
 			return Functions;
 		}
 	}
+
+    // for testing purposes
+    w.$Objects = $Objects;
+	w.Functions = Functions;
 
 	$d.ready(function() {
 		$Objects.PathString = $('#path-string');
