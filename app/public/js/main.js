@@ -74,6 +74,7 @@
 		* @return { object } Functions - object of functions
 		*/
 		HideMessage : function() {
+			console.log($Objects.Message);
 			$Objects.Message.css('display', 'none');
 			return Functions;
 		},

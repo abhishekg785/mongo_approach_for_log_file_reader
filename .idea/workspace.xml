@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1652dc5a-0713-4008-9996-d39e43d2fd2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/testRunner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/js/main.js" afterPath="$PROJECT_DIR$/app/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/loghandler_test.js" afterPath="$PROJECT_DIR$/test/loghandler_test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testRunner.html" afterPath="$PROJECT_DIR$/test/testRunner.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,14 +20,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7611814">
+    <splitter split-orientation="horizontal" split-proportion="0.628692">
       <split-first>
         <leaf>
           <file leaf-file-name="testRunner.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/testRunner.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="457">
-                  <caret line="35" column="76" lean-forward="false" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+                <state relative-caret-position="371">
+                  <caret line="94" column="14" lean-forward="true" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -54,8 +52,8 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+                <state relative-caret-position="180">
+                  <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="24" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -268,12 +266,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498002242091</updated>
-      <workItem from="1498002257152" duration="7063000" />
+      <workItem from="1498002257152" duration="9603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7063000" />
+    <option name="totallyTimeSpent" value="9603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -321,8 +319,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/testRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="35" column="76" lean-forward="false" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+        <state relative-caret-position="371">
+          <caret line="94" column="14" lean-forward="true" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
           <folding />
         </state>
       </provider>

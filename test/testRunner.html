@@ -13,6 +13,7 @@
 <script src = '../app/public/js/main.js'></script>
 <script>
     var assert = chai.assert;
+
     describe("Testing the functions for the loader", function() {
         var loaderStatus = {};
         $Objects.LoaderContainer = new Object();
@@ -31,9 +32,66 @@
             })
         })
         describe('testing for the HideLoader function', function() {
-            it('must hide the loader if the loader is visible', function() {
+            it('must hide the loader if the loader is hidden', function() {
                 Functions.ShowLoader();
                 assert.equal($Objects.LoaderContainer.css('display'), 'block');
+            })
+        })
+    });
+
+    describe("Testing the functions for the Message Paragraph", function() {
+        var messageStatus = {};
+        $Objects.Message = new Object();
+        $Objects.Message.css = function (prop, val) {
+            if(prop && val) {
+                messageStatus.prop = val;
+            }
+            else if(prop) {
+                return messageStatus.prop;
+            }
+        }
+        describe('testing for the HideMessage()', function() {
+            it('must set the message paragraph display to none', function() {
+                Functions.HideMessage();
+                assert.equal($Objects.Message.css('display'), 'none');
+            })
+        })
+        describe('testing for the ShowMessage()', function() {
+            it('must set the message paragraph display to block', function() {
+                Functions.ShowMessage();
+                assert.equal($Objects.Message.css('display'), 'block');
+            })
+        })
+    });
+
+    describe("Testing for the Nav Buttons functions", function() {
+        var navButtonStatus = {};
+        $Objects.NavigationButton = new Object();
+        $Objects.NavigationButton.prop = function (prop, val) {
+            var valStr;
+            if(typeof(val) == "boolean") {
+                valStr = val == true ? "true" : "false";
+            }
+            else {
+                valStr = val;
+            }
+            if(prop && valStr) {
+                navButtonStatus.prop = val;
+            }
+            else if(prop) {
+                return navButtonStatus.prop;
+            }
+        }
+        describe('testing for the EnableNavButtons()', function() {
+            it('must set the disabled property of the nav buttons to false', function() {
+                Functions.EnableNavButtons();
+                assert.equal($Objects.NavigationButton.prop('disabled'), false);
+            })
+        })
+        describe('testing for the DisableNavButtons()', function() {
+            it('must set the disabled property of the nav buttons to block', function() {
+                Functions.DisableNavButtons();
+                assert.equal($Objects.NavigationButton.prop('disabled'), true);
             })
         })
     });
