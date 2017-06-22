@@ -94,7 +94,99 @@
                 assert.equal($Objects.NavigationButton.prop('disabled'), true);
             })
         })
+
+        describe("testing the  LogErrorMessage()", function() {
+          it('function should set the html value to the passed message as a parameter', function() {
+              var errorMessage = "This is a sample error message";
+              var htmlMessageStatus = {};
+              $Objects.DataViewMessage = new Object();
+              $Objects.DataViewMessage.html = function(message){
+                    htmlMessageStatus.html = message;
+              }
+              Functions.LogErrorMessage(errorMessage);
+              assert.equal(htmlMessageStatus.html, errorMessage);
+          })
+        })
     });
+
+    describe('checking the SetPagePosition() function', function() {
+        $Globals.fileRecordsCount = 1000;
+        $Globals.recordsCountPerPage = 10;
+        var totalPages = Math.floor($Globals.fileRecordsCount / $Globals.recordsCountPerPage);
+        var temp = Math.floor($Globals.fileRecordsCount % $Globals.recordsCountPerPage);
+        if(temp == 0) {
+            totalPages = totalPages;
+        }
+        else {
+            totalPages += 1;
+        }
+        describe('checking for action = "initial"', function() {
+            it('$Globals.action should be set to initial', function(done) {
+                Functions.SetPagePosition('initial');
+                assert.equal($Globals.action, 'initial');
+                done();
+            })
+            it('$Globals.currentPagePosition value should be set to 1', function() {
+                assert.equal($Globals.currentPagePosition, 1);
+            })
+        });
+
+        describe('checking for action = "end-nav"', function() {
+            it('$Globals.action should be set to end-nav', function(done) {
+                Functions.SetPagePosition('end-nav');
+                assert.equal($Globals.action, 'end-nav');
+                done();
+            })
+            it('$Globals.currentPagePosition value should be set to last page ('+ totalPages +') i.e total no of pages possible in the records (Total Records = '+ $Globals.fileRecordsCount +') with 10 records per page', function() {
+                assert.equal($Globals.currentPagePosition, totalPages);
+            })
+        })
+
+        describe('checking for action = "next-nav"', function() {
+            it('$Globals.action should be set to next-nav', function(done) {
+                Functions.SetPagePosition('next-nav');
+                assert.equal($Globals.action, 'next-nav');
+                done();
+            })
+            it('$Globals.currentPagePosition value should be set to the next page from the current page. currentPage = 1  in this case, so the next page must be equal to 2', function(done) {
+                $Globals.currentPagePosition = 1;
+                Functions.SetPagePosition('next-nav');
+                assert.equal($Globals.currentPagePosition, 2);
+                done();
+            })
+            describe('$Globals.currentPagePosition value should not exceed the total no of possible pages when currentPagePosition reaches at the last page ', function() {
+                it('for the current page = 100 (last possible page), the next value must not increment', function(done) {
+                    $Globals.currentPagePosition = totalPages;
+                    Functions.SetPagePosition('next-nav');
+                    assert.equal($Globals.currentPagePosition, totalPages);
+                    done();
+                })
+            })
+        })
+
+        describe('checking for action = "previous-nav", previous navigation', function() {
+            it('$Globals.action should be set to previous-nav', function(done) {
+                Functions.SetPagePosition('previous-nav');
+                assert.equal($Globals.action, 'previous-nav');
+                done();
+            })
+            it('$Globals.currentPagePosition value should be set to the previous page from the current page. let the currentPage = 5  in this case, so the previous page must be equal to 4', function(done) {
+                $Globals.currentPagePosition = 5;
+                Functions.SetPagePosition('previous-nav');
+                assert.equal($Globals.currentPagePosition, 4);
+                done();
+            })
+            describe('$Globals.currentPagePosition value should not go less than 1, when currentPagePosition is at the beginning page i.e 1 ', function() {
+                it('for the current page = 1 , the next value must not decrement', function(done) {
+                    $Globals.currentPagePosition = 1;
+                    Functions.SetPagePosition('previous-nav');
+                    assert.equal($Globals.currentPagePosition, 1);
+                    done();
+                })
+            })
+        })
+    })
+
 </script>
 <script>mocha.run();</script>
 </body>
