@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1652dc5a-0713-4008-9996-d39e43d2fd2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/js/main.js" afterPath="$PROJECT_DIR$/app/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testRunner.html" afterPath="$PROJECT_DIR$/test/testRunner.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/logController.js" afterPath="$PROJECT_DIR$/app/controllers/logController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/logController_test.js" afterPath="$PROJECT_DIR$/test/logController_test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/loghandler_test.js" afterPath="$PROJECT_DIR$/test/loghandler_test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,14 +22,24 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5628692">
+    <splitter split-orientation="horizontal" split-proportion="0.45777026">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="testRunner.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="testRunner.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test/testRunner.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3132">
-                  <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+                <state relative-caret-position="-108">
+                  <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="logHandler.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/logHandler.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-738">
+                  <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -38,6 +50,60 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1206">
                   <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
+                  <folding>
+                    <marker date="1498094549027" expanded="false" signature="0:61" ph="/*...*/" />
+                    <marker date="1498094549027" expanded="true" signature="91:7802" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="153:226" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="300:530" ph="{&quot;initial&quot;: 'initial'...}" />
+                    <marker date="1498094549027" expanded="true" signature="552:6382" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="562:944" ph="/** sends an ajax request to the server with the file path. ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="996:2504" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1017:2462" ph="{&quot;url&quot;: 'http://localhost:3000'...}" />
+                    <marker date="1498094549027" expanded="true" signature="1120:1294" ph="{&quot;filePath&quot;: filePath...}" />
+                    <marker date="1498094549027" expanded="true" signature="1345:2222" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1597:1719" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1745:2204" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1804:1993" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2023:2110" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2262:2448" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2515:2630" ph="/** Hide the message paragraph ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="2664:2801" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2812:2927" ph="/** Show the message paragraph ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="2961:3056" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3067:3189" ph="/** Show the Loader atfter processing ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3222:3325" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3336:3458" ph="/** Hide the Loader atfter processing ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3491:3593" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3604:3758" ph="/** Enables the navigation buttons when the data has not been fetched ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3797:3901" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3912:4067" ph="/** Disables the navigation buttons when the data has not been fetched ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="4107:4210" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="4221:4429" ph="/** Used to displau the error message for ajax query ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="4474:4601" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="4647:5853" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5074:5129" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5147:5206" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5319:5385" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5480:5546" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5593:5667" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5748:5813" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5864:5994" ph="/** Populates the data-view div with the data ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="6042:6376" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6157:6261" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6408:7685" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6824:7227" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6911:7046" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="7291:7593" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="logController.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controllers/logController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="512">
+                  <caret line="176" column="10" lean-forward="false" selection-start-line="176" selection-start-column="10" selection-end-line="176" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -47,12 +113,80 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2484">
-                  <caret line="180" column="9" lean-forward="false" selection-start-line="180" selection-start-column="9" selection-end-line="180" selection-end-column="9" />
-                  <folding />
+                <state relative-caret-position="0">
+                  <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+                  <folding>
+                    <marker date="1498094549027" expanded="false" signature="0:61" ph="/*...*/" />
+                    <marker date="1498094549027" expanded="true" signature="91:7802" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="153:226" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="300:530" ph="{&quot;initial&quot;: 'initial'...}" />
+                    <marker date="1498094549027" expanded="true" signature="552:6382" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="562:944" ph="/** sends an ajax request to the server with the file path. ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="996:2504" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1017:2462" ph="{&quot;url&quot;: 'http://localhost:3000'...}" />
+                    <marker date="1498094549027" expanded="true" signature="1120:1294" ph="{&quot;filePath&quot;: filePath...}" />
+                    <marker date="1498094549027" expanded="true" signature="1345:2222" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1597:1719" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1745:2204" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="1804:1993" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2023:2110" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2262:2448" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2515:2630" ph="/** Hide the message paragraph ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="2664:2801" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="2812:2927" ph="/** Show the message paragraph ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="2961:3056" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3067:3189" ph="/** Show the Loader atfter processing ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3222:3325" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3336:3458" ph="/** Hide the Loader atfter processing ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3491:3593" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3604:3758" ph="/** Enables the navigation buttons when the data has not been fetched ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="3797:3901" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="3912:4067" ph="/** Disables the navigation buttons when the data has not been fetched ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="4107:4210" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="4221:4429" ph="/** Used to displau the error message for ajax query ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="4474:4601" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="4647:5853" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5074:5129" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5147:5206" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5319:5385" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5480:5546" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5593:5667" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5748:5813" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="5864:5994" ph="/** Populates the data-view div with the data ...*/" />
+                    <marker date="1498094549027" expanded="true" signature="6042:6376" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6157:6261" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6408:7685" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6824:7227" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="6911:7046" ph="{...}" />
+                    <marker date="1498094549027" expanded="true" signature="7291:7593" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="logController_test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test/logController_test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="456">
+                  <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="loghandler_test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/loghandler_test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="432">
+                  <caret line="24" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -69,6 +203,9 @@
       <list>
         <option value="$PROJECT_DIR$/app/public/js/main.js" />
         <option value="$PROJECT_DIR$/test/testRunner.html" />
+        <option value="$PROJECT_DIR$/test/loghandler_test.js" />
+        <option value="$PROJECT_DIR$/app/controllers/logController.js" />
+        <option value="$PROJECT_DIR$/test/logController_test.js" />
       </list>
     </option>
   </component>
@@ -103,6 +240,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -143,10 +282,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongo-db_approach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongo-db_approach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -229,18 +384,19 @@
       <option name="presentableId" value="Default" />
       <updated>1498002242091</updated>
       <workItem from="1498002257152" duration="10206000" />
-      <workItem from="1498084861130" duration="13203000" />
+      <workItem from="1498084861130" duration="13479000" />
+      <workItem from="1498138903914" duration="12405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23409000" />
+    <option name="totallyTimeSpent" value="36090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17203514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -272,6 +428,74 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/testRunner.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+          <folding>
+            <marker date="1498094549027" expanded="false" signature="0:61" ph="/*...*/" />
+            <marker date="1498094549027" expanded="true" signature="91:7802" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="153:226" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="300:530" ph="{&quot;initial&quot;: 'initial'...}" />
+            <marker date="1498094549027" expanded="true" signature="552:6382" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="562:944" ph="/** sends an ajax request to the server with the file path. ...*/" />
+            <marker date="1498094549027" expanded="true" signature="996:2504" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1017:2462" ph="{&quot;url&quot;: 'http://localhost:3000'...}" />
+            <marker date="1498094549027" expanded="true" signature="1120:1294" ph="{&quot;filePath&quot;: filePath...}" />
+            <marker date="1498094549027" expanded="true" signature="1345:2222" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1597:1719" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1745:2204" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1804:1993" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2023:2110" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2262:2448" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2515:2630" ph="/** Hide the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2664:2801" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2812:2927" ph="/** Show the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2961:3056" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3067:3189" ph="/** Show the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3222:3325" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3336:3458" ph="/** Hide the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3491:3593" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3604:3758" ph="/** Enables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3797:3901" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3912:4067" ph="/** Disables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4107:4210" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4221:4429" ph="/** Used to displau the error message for ajax query ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4474:4601" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4647:5853" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5074:5129" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5147:5206" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5319:5385" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5480:5546" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5593:5667" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5748:5813" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5864:5994" ph="/** Populates the data-view div with the data ...*/" />
+            <marker date="1498094549027" expanded="true" signature="6042:6376" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6157:6261" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6408:7685" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6824:7227" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6911:7046" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="7291:7593" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/logController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testRunner.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
           <folding />
@@ -282,23 +506,147 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1278">
           <caret line="71" column="11" lean-forward="false" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1498094549027" expanded="false" signature="0:61" ph="/*...*/" />
+            <marker date="1498094549027" expanded="true" signature="91:7802" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="153:226" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="300:530" ph="{&quot;initial&quot;: 'initial'...}" />
+            <marker date="1498094549027" expanded="true" signature="552:6382" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="562:944" ph="/** sends an ajax request to the server with the file path. ...*/" />
+            <marker date="1498094549027" expanded="true" signature="996:2504" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1017:2462" ph="{&quot;url&quot;: 'http://localhost:3000'...}" />
+            <marker date="1498094549027" expanded="true" signature="1120:1294" ph="{&quot;filePath&quot;: filePath...}" />
+            <marker date="1498094549027" expanded="true" signature="1345:2222" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1597:1719" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1745:2204" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1804:1993" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2023:2110" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2262:2448" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2515:2630" ph="/** Hide the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2664:2801" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2812:2927" ph="/** Show the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2961:3056" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3067:3189" ph="/** Show the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3222:3325" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3336:3458" ph="/** Hide the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3491:3593" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3604:3758" ph="/** Enables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3797:3901" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3912:4067" ph="/** Disables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4107:4210" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4221:4429" ph="/** Used to displau the error message for ajax query ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4474:4601" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4647:5853" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5074:5129" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5147:5206" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5319:5385" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5480:5546" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5593:5667" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5748:5813" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5864:5994" ph="/** Populates the data-view div with the data ...*/" />
+            <marker date="1498094549027" expanded="true" signature="6042:6376" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6157:6261" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6408:7685" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6824:7227" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6911:7046" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="7291:7593" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+          <folding>
+            <marker date="1498094549027" expanded="false" signature="0:61" ph="/*...*/" />
+            <marker date="1498094549027" expanded="true" signature="91:7802" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="153:226" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="300:530" ph="{&quot;initial&quot;: 'initial'...}" />
+            <marker date="1498094549027" expanded="true" signature="552:6382" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="562:944" ph="/** sends an ajax request to the server with the file path. ...*/" />
+            <marker date="1498094549027" expanded="true" signature="996:2504" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1017:2462" ph="{&quot;url&quot;: 'http://localhost:3000'...}" />
+            <marker date="1498094549027" expanded="true" signature="1120:1294" ph="{&quot;filePath&quot;: filePath...}" />
+            <marker date="1498094549027" expanded="true" signature="1345:2222" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1597:1719" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1745:2204" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="1804:1993" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2023:2110" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2262:2448" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2515:2630" ph="/** Hide the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2664:2801" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="2812:2927" ph="/** Show the message paragraph ...*/" />
+            <marker date="1498094549027" expanded="true" signature="2961:3056" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3067:3189" ph="/** Show the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3222:3325" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3336:3458" ph="/** Hide the Loader atfter processing ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3491:3593" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3604:3758" ph="/** Enables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="3797:3901" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="3912:4067" ph="/** Disables the navigation buttons when the data has not been fetched ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4107:4210" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4221:4429" ph="/** Used to displau the error message for ajax query ...*/" />
+            <marker date="1498094549027" expanded="true" signature="4474:4601" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="4647:5853" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5074:5129" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5147:5206" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5319:5385" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5480:5546" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5593:5667" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5748:5813" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="5864:5994" ph="/** Populates the data-view div with the data ...*/" />
+            <marker date="1498094549027" expanded="true" signature="6042:6376" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6157:6261" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6408:7685" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6824:7227" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="6911:7046" ph="{...}" />
+            <marker date="1498094549027" expanded="true" signature="7291:7593" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/loghandler_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/testRunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3132">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="-108">
+          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/logHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-738">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/logController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="176" column="10" lean-forward="false" selection-start-line="176" selection-start-column="10" selection-end-line="176" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/logController_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -102,7 +102,6 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 		* @param { function } callback - callback function to return the status of the file read or not
 		*/
 		function fileReadStatus(logParameters, callback) {
-			console.log('Reading file status');
 			ReadFileModel.find({
 				'fileName' : logParameters.filePath
 			}).exec(function checkFileStatus(err, data) {
@@ -245,4 +244,7 @@ var ReadFileModel = require('../models/readFileModel'); // model for having the 
 			});
 		}
 
+		// for testing purposes
+		exports.fileReadStatus = fileReadStatus;
+		exports.saveFileInDB = saveFileInDB;
 	})(exports);
