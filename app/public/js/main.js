@@ -46,7 +46,6 @@
                         .HideLoader()
                         .EnableNavButtons();
                     var fetchedData = JSON.parse(data);
-                    console.log(fetchedData);
                     if(fetchedData.error) {
                         Functions.ShowMessage().LogErrorMessage("<p>"+ fetchedData.error +"</p>");
                     }

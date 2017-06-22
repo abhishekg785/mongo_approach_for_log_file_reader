@@ -6,6 +6,7 @@
 <body>
 <div id = 'mocha'></div>
 <script src = '../node_modules/mocha/mocha.js'></script>
+<script src = '../node_modules/sinon/pkg/sinon-2.3.5.js'></script>
 <script src = '../node_modules/chai/chai.js'></script>
 <script>mocha.setup('bdd')</script>
 <!-- file to test i.e main.js -->
@@ -13,6 +14,52 @@
 <script src = '../app/public/js/main.js'></script>
 <script>
     var assert = chai.assert;
+    var expect = chai.expect;
+
+    // testing my ajax POST request
+    describe("Ajax post request", function() {
+        var dataViewData = [];
+        // dummy data to send to client on request success
+        var data = [
+            {
+                lineNumber : 1,
+                log : 'This is log1'
+            },
+            {
+                lineNumber : 2,
+                log : 'This is log2'
+            }
+        ];
+        data = JSON.stringify(data);
+        beforeEach(function() {
+            $Objects.DataView = new Object();
+            $Objects.DataView.empty = function() {
+                dataViewData = [];
+            }
+            $Objects.DataView.append = function(value){
+                dataViewData.push(value);
+            }
+            sinon.stub($, 'ajax').yieldsTo('success', data);
+        });
+
+        afterEach(function() {
+            console.log(dataViewData);
+            dataViewData = [];
+            $.ajax.restore();
+        })
+
+        it('should make an ajax call', function(done) {
+            Functions.FetchFileData('/var/log/mongodb/mongod.log', 'next-nav');
+            expect($.ajax.calledOnce).to.be.true;
+            done();
+        });
+
+        it('should fetch the received data on success and set it to the $Globals.dataArr', function(done) {
+            Functions.FetchFileData('/var/log/mongodb/mongod.log', 'next-nav');
+            expect(JSON.stringify($Globals.dataArr.length)).to.be.equal('2');
+            done();
+        });
+    })
 
     describe("Testing the functions for the loader", function() {
         var loaderStatus = {};

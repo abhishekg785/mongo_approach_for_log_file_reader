@@ -19,6 +19,7 @@
     "mocha": "^3.4.2",
     "mongoose": "^4.10.6",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "sinon": "^2.3.5"
   }
 }
