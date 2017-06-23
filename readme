@@ -57,6 +57,8 @@ Sinon  : for stubs and spies implementations
 The test cases are present on the test folder inside the project dir.
 i.e /test
 
+The test dir also contains a test file to be used in testing.
+
 This is how to run the test cases :
 
 for the main.js file ( /app/public/js/main.js)
