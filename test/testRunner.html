@@ -49,9 +49,10 @@
         });
 
         afterEach(function() {
-            console.log(dataViewData);
+//            console.log(dataViewData);
             dataViewData = [];
             $.ajax.restore();
+            $Objects.DataView = new Object();
         })
 
         it('should make an ajax call', function(done) {
@@ -152,16 +153,19 @@
         })
 
         describe("testing the  LogErrorMessage()", function() {
-          it('function should set the html value to the passed message as a parameter', function() {
-              var errorMessage = "This is a sample error message";
-              var htmlMessageStatus = {};
-              $Objects.DataViewMessage = new Object();
-              $Objects.DataViewMessage.html = function(message){
+            it('function should set the html value to the passed message as a parameter', function() {
+                var errorMessage = "This is a sample error message";
+                var htmlMessageStatus = {};
+                $Objects.DataViewMessage = new Object();
+                $Objects.DataViewMessage.html = function(message){
                     htmlMessageStatus.html = message;
-              }
-              Functions.LogErrorMessage(errorMessage);
-              assert.equal(htmlMessageStatus.html, errorMessage);
-          })
+                }
+                Functions.LogErrorMessage(errorMessage);
+                assert.equal(htmlMessageStatus.html, errorMessage);
+            });
+            after(function() {
+                $Objects.DataViewMessage = new Object();
+            });
         })
     });
 
@@ -244,6 +248,31 @@
                 })
             })
         })
+    })
+
+    // test for the function which populates the fetched data into the DOM
+    describe('Testing for the displayFetchedLogs()', function() {
+        var dummyHTMLDOM,
+            dummyData = ['This is data1', 'This is data2'];
+        before(function() {
+            dummyHTMLDOM = [];
+            $Objects.DataView = new Object();
+            $Objects.DataView.append = function(html) {
+                dummyHTMLDOM = dummyData;
+            }
+            $Objects.DataView.empty = function() {
+                dummyHTMLDOM = [];
+            }
+        })
+        it('should set the passed data and populate the data into DOM', function(done) {
+            console.log($Objects.DataView);
+            Functions.DisplayFetchedLogs(dummyData);
+            assert.equal(dummyHTMLDOM, dummyData);
+            done();
+        })
+        after(function() {
+            $Objects.DataView = new Object();
+        });
     })
 
 </script>

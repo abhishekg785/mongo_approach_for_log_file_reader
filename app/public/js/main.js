@@ -73,7 +73,7 @@
          * @return { object } Functions - object of functions
          */
         HideMessage : function() {
-            console.log($Objects.Message);
+            // console.log($Objects.Message);
             $Objects.Message.css('display', 'none');
             return Functions;
         },
@@ -130,7 +130,7 @@
          * @return { object } Functions - object of functions
          */
         LogErrorMessage : function(message) {
-            console.log(message);
+            // console.log(message);
             $Objects.DataViewMessage.html(message);
             return Functions;
         },
