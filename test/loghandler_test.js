@@ -1,3 +1,10 @@
+/**
+ * author : abhishek goswami
+ * abhishekg785@gmail.com
+ *
+ * logHandler_test.js : unit test for the logHandler.js module
+ */
+
 'use strict'
 
 let path = require('path');
@@ -11,6 +18,10 @@ let logHandler = require('../app/controllers/logHandler');
 
 var LogModel = require('../app/models/logModel');
 
+/*
+* Testing starts here
+* Simply attach the beforeEach and after function to attach the object of LogHanlder
+ */
 describe("Testing logHandler module", function() {
 
     var obj,
@@ -20,6 +31,9 @@ describe("Testing logHandler module", function() {
         obj = new logHandler.LogHandler(filePath);
     });
 
+    /*
+    * LogHanlder constructor must set the values to the passed values
+     */
     describe('handling LogHandler function', function() {
         describe('LogHandler constructor', function() {
             it('filepath and readStream should have values set to the ones passed', function(done) {
@@ -61,6 +75,7 @@ describe("Testing logHandler module", function() {
         });
     });
 
+    // empty the unit database after testing
     after(function() {
         LogModel.remove({}, function() {
             console.log('removed');

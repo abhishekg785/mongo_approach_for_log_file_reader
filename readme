@@ -39,8 +39,31 @@ Else {
 
 Note : The good appraoch will be using elk stack i.e using somethings like logstash , elastic search or graylog etc.
 
-Steps to Run :
+Steps to Run the project:
 
 1. cd into the project
 2. do 'sudo npm install' to install npm modules
 3. node bin/www
+
+
+Testing
+-------
+
+I have used the following tools for testing :
+Mocha  : for testing
+Chai   : for assertion
+Sinon  : for stubs and spies implementations
+
+The test cases are present on the test folder inside the project dir.
+i.e /test
+
+This is how to run the test cases :
+
+for the main.js file ( /app/public/js/main.js)
+
+    - Simply open the file testRunner.html file in the browser and it will run the test cases for the main.js file.
+
+for the node js modules :
+
+    - Simply run the command => npm run test
+    This will run all the test files present in the test folder.

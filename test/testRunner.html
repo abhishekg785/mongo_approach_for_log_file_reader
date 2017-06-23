@@ -1,3 +1,9 @@
+<!--
+    author : abhishek goswami
+    abhishekg785@gmail.com
+
+    unit test for the main.js file
+-->
 <html>
 <head>
     <title>Test Runner</title>
@@ -16,7 +22,7 @@
     var assert = chai.assert;
     var expect = chai.expect;
 
-    // testing my ajax POST request
+    // testing the ajax POST request
     describe("Ajax post request", function() {
         var dataViewData = [];
         // dummy data to send to client on request success
@@ -61,6 +67,7 @@
         });
     })
 
+    // testing the functions for the loader
     describe("Testing the functions for the loader", function() {
         var loaderStatus = {};
         $Objects.LoaderContainer = new Object();
@@ -86,6 +93,7 @@
         })
     });
 
+    // testing the message value to be shown to the user
     describe("Testing the functions for the Message Paragraph", function() {
         var messageStatus = {};
         $Objects.Message = new Object();
@@ -111,6 +119,7 @@
         })
     });
 
+    // testing the visibility of the navigation buttons in the DOM
     describe("Testing for the Nav Buttons functions", function() {
         var navButtonStatus = {};
         $Objects.NavigationButton = new Object();
@@ -156,6 +165,7 @@
         })
     });
 
+    // testing for the current Page position the users is at
     describe('checking the SetPagePosition() function', function() {
         $Globals.fileRecordsCount = 1000;
         $Globals.recordsCountPerPage = 10;
