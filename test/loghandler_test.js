@@ -9,7 +9,7 @@
 
 let path = require('path');
 
-require('../dbConnect')('test'); // require connection to testDB
+require('../dbConnect')('test'); // work on the test database
 let sinon = require('sinon');
 let assert = require('chai').assert;
 let expect = require('chai').expect;

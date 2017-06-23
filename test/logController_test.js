@@ -7,7 +7,7 @@
 
 'use strict'
 
-require('../dbConnect')('test');
+require('../dbConnect')('test');  // Important! work on the test database
 
 let path = require('path');
 let chai  = require('chai');
