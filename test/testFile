@@ -1,0 +1,36 @@
+2016-09-17T13:07:37.587+0530 I CONTROL  [initandlisten] MongoDB starting : pid=914 port=27017 dbpath=/var/lib/mongodb 64-bit host=hiro-Lenovo-G50-70
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] db version v3.2.1
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] git version: a14d55980c2cdc565d4704a7e3ad37e4e535c1b2
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2d 9 Jul 2015
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] modules: none
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] build environment:
+    2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten]     distmod: ubuntu1404
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten]     distarch: x86_64
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-09-17T13:07:37.588+0530 I CONTROL  [initandlisten] options: { config: "/etc/mongod.conf", net: { bindIp: "127.0.0.1", port: 27017 }, storage: { $
+    2016-09-17T13:07:37.621+0530 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),confi$
+    2016-09-17T13:07:43.635+0   530 I CONTROL  [initandlisten]
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten]
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+    2016-09-17T13:07:43.635+0530 I CONTROL  [initandlisten]
+    2016-09-17T13:07:44.507+0530 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/var/lib/mongodb/diagnostic.da$
+    2016-09-17T13:07:44.507+0530 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+    2016-09-17T13:07:45.080+0530 I NETWORK  [initandlisten] waiting for connections on port 27017
+    2016-09-18T20:58:45.587+0530 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+    2016-09-18T20:58:46.875+0530 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+    2016-09-18T20:58:49.980+0530 I CONTROL  [signalProcessingThread] now exiting
+    2016-09-18T20:58:49.980+0530 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+    2016-09-18T20:58:50.005+0530 I NETWORK  [signalProcessingThread] closing listening socket: 6
+    2016-09-18T20:58:50.005+0530 I NETWORK  [signalProcessingThread] closing listening socket: 7
+    2016-09-18T20:58:50.005+0530 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+    2016-09-18T20:58:50.058+0530 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+    2016-09-18T20:58:50.058+0530 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+    2016-09-18T20:58:50.268+0530 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+    2016-09-18T20:58:56.036+0530 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+    2016-09-18T20:58:56.036+0530 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+    2016-11-26T17:29:04.140+0530 I CONTROL  [main] ***** SERVER RESTARTED *****
+    2016-11-26T17:29:05.277+0530 I CONTROL  [initandlisten] MongoDB starting : pid=922 port=27017 dbpath=/var/lib/mongodb 64-bit host=hiro-Lenovo-G50-70

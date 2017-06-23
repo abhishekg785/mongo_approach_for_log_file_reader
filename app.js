@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // mongodb connection
-var dbConnect = require('./dbConnect');
+var dbConnect = require('./dbConnect')('main');
 
 var routes = require('./app/routes/index');
 
