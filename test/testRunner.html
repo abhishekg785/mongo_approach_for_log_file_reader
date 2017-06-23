@@ -173,8 +173,9 @@
                 assert.equal($Globals.action, 'initial');
                 done();
             })
-            it('$Globals.currentPagePosition value should be set to 1', function() {
+            it('$Globals.currentPagePosition value should be set to 1', function(done) {
                 assert.equal($Globals.currentPagePosition, 1);
+                done();
             })
         });
 
@@ -184,8 +185,9 @@
                 assert.equal($Globals.action, 'end-nav');
                 done();
             })
-            it('$Globals.currentPagePosition value should be set to last page ('+ totalPages +') i.e total no of pages possible in the records (Total Records = '+ $Globals.fileRecordsCount +') with 10 records per page', function() {
+            it('$Globals.currentPagePosition value should be set to last page ('+ totalPages +') i.e total no of pages possible in the records (Total Records = '+ $Globals.fileRecordsCount +') with 10 records per page', function(done) {
                 assert.equal($Globals.currentPagePosition, totalPages);
+                done();
             })
         })
 

@@ -150,7 +150,7 @@
             else {
                 totalPages = pageCount + 1;
             }
-            if(action == $ActionObj.next && ($Globals.currentPagePosition + 1) <= $Globals.recordsCountPerPage) {
+            if(action == $ActionObj.next && ($Globals.currentPagePosition + 1) <= totalPages) {
                 $Globals.currentPagePosition += 1;
             }
             else if(action == $ActionObj.previous && ($Globals.currentPagePosition - 1) >= 1) {
@@ -162,6 +162,7 @@
             else if(action == $ActionObj.start || action == $ActionObj.initial) {
                 $Globals.currentPagePosition = 1;
             }
+            // console.log($Globals);
             return Functions;
         },
 
