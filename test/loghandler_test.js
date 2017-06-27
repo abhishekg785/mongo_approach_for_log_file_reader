@@ -17,6 +17,7 @@ let expect = require('chai').expect;
 let logHandler = require('../app/controllers/logHandler');
 
 var LogModel = require('../app/models/logModel');
+var ReadFileModel = require('../app/models/readFileModel');
 
 /*
 * Testing starts here
@@ -78,7 +79,10 @@ describe("Testing logHandler module", function() {
     // empty the unit database after testing
     after(function() {
         LogModel.remove({}, function() {
-            console.log('removed');
+            console.log('Removed from LogModel');
         });
+        ReadFileModel.remove({}, function() {
+            console.log('removed from ReadFileModel');
+        })
     });
 });
